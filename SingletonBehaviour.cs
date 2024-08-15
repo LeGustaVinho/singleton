@@ -45,7 +45,7 @@ namespace LegendaryTools
                 }
             }
 
-            return FindObjectOfType<T>();
+            return Object.FindAnyObjectByType<T>();
         }
         
         protected virtual void Awake()
@@ -78,7 +78,7 @@ namespace LegendaryTools
 
         private void RemoveDuplicateInstances()
         {
-            T[] clones = FindObjectsOfType<T>();
+            T[] clones = FindObjectsByType<T>(FindObjectsSortMode.None);
 
             if (clones.Length > 1)
             {
